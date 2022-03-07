@@ -6,6 +6,7 @@ library(shinydashboard)
 library(shinyWidgets)
 library(rvest)
 
+
 # --------------
 # Preparing Data
 # --------------
@@ -88,7 +89,8 @@ ui <- dashboardPage(skin = "green",
   dashboardSidebar(
     sidebarMenu(
       menuItem("Description", tabName = "Description", icon = icon("file-text")),
-      menuItem("Maps", tabName = "Maps", icon = icon("map-marker-alt"))
+      menuItem("Maps", tabName = "Maps", icon = icon("map-marker-alt")),
+      menuItem("County Totals", tabName = "CountyTotals", icon = icon("chart-bar"))
     )
   ),
   dashboardBody(
@@ -124,8 +126,12 @@ ui <- dashboardPage(skin = "green",
                               value=c(as.Date("2013-01-01"),as.Date("2019-12-01")),
                               timeFormat="%b %Y"),
                   width = 5),
+              ),
+      tabItem(tabName = "CountyTotals",
+              box(img(src = "monthy_count_animation.gif", 
+                      width = "640px", height = "400px"), width = 11)
               )
-    )
+      )
   )
 )
 
